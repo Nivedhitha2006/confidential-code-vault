@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Vault</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+  <h2>Welcome to Your Code Vault</h2>
+  <form method="post">
+    <input name="title" placeholder="Snippet Title" required>
+    <input name="language" placeholder="Language (e.g. Python, JavaScript)" required>
+    <textarea name="code" rows="6" placeholder="Paste your code..." required></textarea>
+    <button type="submit">Save</button>
+  </form>
+  <hr>
+  <h3>Saved Snippets:</h3>
+  {% for id, title, lang, code in codes %}
+    <div>
+      <h4>{{ title }} - {{ lang }}</h4>
+      <pre>{{ code }}</pre>
+    </div>
+  {% endfor %}
+  <a href="/logout"><button>Logout</button></a>
+</div>
+</body>
+</html>
